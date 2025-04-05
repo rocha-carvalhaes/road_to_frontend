@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 2 - CSS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h3>semana 2</h3>
+
+    <p>30/03/2025 - agora comecei a estilizar as coisas!</p>
+
+    <h4>principais seletores css:</h4>
+    <table width="600px" border="1" style="text-align: center;">
+        <tr>
+            <th>seletor</th>
+            <th>descrição</th>
+            <th>exemplo</th>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>seletor universal (afeta tudo)</td>
+            <td><code>* { margin: 0; }</code></td>
+        </tr>
+        <tr>
+            <td>tag</td>
+            <td>afeta todas as tags do tipo</td>
+            <td><code>p { color: red; }</code></td>
+        </tr>
+        <tr>
+            <td>.classe</td>
+            <td>afeta todos os elementos com essa classe</td>
+            <td><code>.destaque { font-weight: bold; }</code></td>
+        </tr>
+        <tr>
+            <td>#id</td>
+            <td>afeta um elemento específico</td>
+            <td><code>#titulo { font-size: 24px; }</code></td>
+        </tr>
+    </table>
+
+    <h4>o box model:</h4>
+    <p>o box model define como cada elemento é renderizado no layout. ele é composto pelas seguintes estruturas</p>
+    <ul>
+        <li><b>content</b>: o conteúdo do elemento</li>
+        <li><b>padding</b>: espaço interno</li>
+        <li><b>border</b>: borda ao redor do elemento</li>
+        <li><b>margin</b>: espaço externo ao redor do elemento</li>
+    </ul>
+    <div class="box-model">Exemplo de Box Model</div>
+
+    <h4>flexbox</h4>
+    <p>flexbox é um sistema que facilita a organização dos elementos</p>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h4>css grid:</h4>
+    <p>grid permite criar layouts mais complexos</p>
+    <div class="grid-container">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+    </div>
+
+    <h4>pseudo-classes e pseudo-elementos:</h4>
+    <p><b>pseudo-classes</b> permitem aplicar estilos com base no estado do elemento.</p>
+    <button class="btn-hover">Passe o mouse aqui</button>
+
+    <p><b>pseudo-elementos</b> permitem estilizar partes de um elemento.</p>
+    <p class="text-shadow">este texto tem um efeito especial.</p>
+
+</body>
+</html>
