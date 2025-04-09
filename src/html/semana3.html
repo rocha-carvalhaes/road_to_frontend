@@ -11,9 +11,50 @@
 
     <p>05/04/2025 - começando com javascript</p>
     <script>
-        window.alert('Minha primeira mensagem')
-        window.confirm('Você está gostando de JS?')
-        window.prompt('Qual é o seu nome?')
+        var nome = window.prompt('qual é o seu nome?')
+        window.alert('bem vindo, USERNAME !')
+        window.alert('kkkk zuera. bem vindo, ' + nome + '!')
     </script>
+
+
+    <p>09/04/2025 - escolha um número X, de 1 a 10</p>
+    <input type="number" id="numeroInicial">
+    <button onclick="magica()">escolhi</button>
+
+    <div id="passos" style="display:none; padding-left: 20px; font-size: 14px;">
+        <ol>
+            <li>agora pense em um número secreto Y</li>
+            <li>multiplique Y por 8</li>
+            <li>some Y ao resultado</li>
+            <li>some os dois algarismos</li>
+            <li>agora subtraia o número primeiro numero X</li>
+        </ol>
+        <button onclick="revelarTruque()">Adivinhar resultado</button>
+    </div><br>
+
+    <div id="abracadabra" style="display:none; padding-left: 20px; ">
+        <img src="../../data/img/coelho_magico.jpg" alt="magicRabbit" width="150px">
+        <p>o resultado é: <span id="resultado"></span></p>
+    </div>
+
+    <script>
+        var resultadoFinal = null
+
+        function magica() {
+            const  X = document.getElementById("numeroInicial").value;
+            if (X == "") {
+                window.alert("digita um número, animal!")
+                return
+            }
+            resultadoFinal = 9 - Number.parseInt(X)
+            document.getElementById("passos").style.display = "block";
+        }
+
+        function revelarTruque() {
+            document.getElementById("abracadabra").style.display = "block";
+            document.getElementById("resultado").innerText = resultadoFinal;
+        }
+    </script>
+
 </body>
 </html>
