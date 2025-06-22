@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 4 - JavaScript</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        div#teste_de_interatividade {
+            font: normal 20pt Arial;
+            background-color: #3e5b86;
+            color: #cbd1f5;
+            width: 400px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>semana 4</h3>
+
+    <p>15/04/2025 - aprendendo operadores matemáticos</p>
+    <table width="400" border="1" style="text-align: center;">
+        <tr>
+            <th> operador </th>
+            <th> explicação </th>
+        </tr>
+        <tr>
+            <td> + </td>
+            <td>adição</td>
+        </tr>
+        <tr>
+            <td> - </td>
+            <td>subtração</td>
+        </tr>
+        <tr>
+            <td> * </td>
+            <td>multiplicação</td>
+        </tr>
+        <tr>
+            <td> / </td>
+            <td>divisão</td>
+        </tr>
+        <tr>
+            <td> % </td>
+            <td>resto da divisão</td>
+        </tr>
+        <tr>
+            <td> ** </td>
+            <td>exponenciação</td>
+        </tr>
+        <tr>
+            <td> += </td>
+            <td>adição e atribuição</td>
+        </tr>
+    </table>
+    <p>15/04/2025 - aprendendo operadores relacionais</p>
+    <table width="400" border="1" style="text-align: center;">
+        <tr>
+            <th> operador </th>
+            <th> explicação </th>
+        </tr>
+        <tr>
+            <td> == </td>
+            <td>igualdade</td>
+        </tr>
+        <tr>
+            <td> === </td>
+            <td>igualdade estrita</td>
+        </tr>
+
+        <tr>
+            <td> != </td>
+            <td>desigualdade</td>
+        </tr>
+        <tr>
+            <td> !== </td>
+            <td>desigualdade estrita</td>
+        </tr>
+        <tr>
+            <td> >= </td>
+            <td>maior ou igual</td>
+        </tr>
+        <tr>
+            <td> <= </td>
+            <td>menor ou igual</td>
+        </tr>
+    </table>
+    <p>15/04/2025 - aprendendo operadores lógicos</p>
+    <table width="400" border="1" style="text-align: center;">
+        <tr>
+            <th> operador </th>
+            <th> explicação </th>
+        </tr>
+        <tr>
+            <td> && </td>
+            <td>e</td>
+        </tr>
+        <tr>
+            <td> || </td>
+            <td>ou</td>
+        </tr>
+        <tr>
+            <td> ! </td>
+            <td>não</td>
+        </tr>
+    </table>
+    <p>15/04/2025 - aprendendo operadore ternário</p>
+    <table width="400" border="1" style="text-align: center;">
+        <tr>
+            <th> Operador </th>
+            <th> Explicação </th>
+        </tr>
+        <tr>
+            <td> ? : </td>
+            <td>operador ternário</td>
+        </tr>
+    </table>
+    <p>15/04/2025 - aprendendo sobre a árvore DOM (document object model)</p>
+    <img src=../../data/img/arvore_dom.webp alt="Árvore DOM" width="400px">
+
+    <p>17/04/2025 - aprendendo sobre eventos DOM</p>
+    <div id="teste_de_interatividade">
+        chega mais!
+    </div>
+
+    <p>18/04/2025 - aprendendo sobre condições</p>
+    <div>
+        <p><strong>sintaxe da condicional simples:</strong></p>
+        <pre><code>
+    if (condição) {
+        'executa_caso_verdadeiro'
+    } else {
+        'executa_caso_falso'
+    }</code></pre>
+        <p><strong>sintaxe da condicional múltipla:</strong></p>
+    <pre><code>
+    switch (expressao) { 
+        case valor_1: 
+            executa_caso_valor_1 
+            break
+        case valor_2:
+            executa_caso_valor_2
+            break
+        case valor_3:
+            executa_caso_valor_3
+            break
+        default:
+    }</code></pre>
+    </div>
+
+    <script>
+        var area_div = window.document.getElementById('teste_de_interatividade')
+        area_div.addEventListener('mousedown' ,clicar)
+        area_div.addEventListener('mouseup', soltar)
+        area_div.addEventListener('mouseenter', entrar)
+        area_div.addEventListener('mouseout', sair)
+        
+        function clicar() {
+            area_div.innerText = 'clicou'
+            area_div.style.background = '#adf700'
+            area_div.style.color = 'black'
+        }
+
+        function soltar() {
+            area_div.innerText = 'soltou'
+            area_div.style.background = '#3e8674'
+            area_div.style.color = '#cbd1f5'
+        }
+
+        function entrar() {
+            area_div.innerText = 'entrou'
+            area_div.style.background = '#3e8674'
+            area_div.style.color = '#cbd1f5'
+        }
+
+        function sair() {
+            area_div.innerText = 'saiu'
+            area_div.style.background = '#3e5b86'
+            area_div.style.color = '#cbd1f5'
+        }
+    </script>
+</body>
+</html>

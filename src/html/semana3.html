@@ -23,11 +23,11 @@
 
     <div id="passos" style="display:none; padding-left: 20px; font-size: 14px;">
         <ol>
-            <li>agora pense em um número secreto Y</li>
-            <li>multiplique Y por 8</li>
-            <li>some Y ao resultado</li>
-            <li>some os dois algarismos</li>
-            <li>agora subtraia o número primeiro numero X</li>
+            <li>agora pense em um número secreto Y, de 1 a 10</li>
+            <li>multiplique Y por 8 </li>
+            <li>some Y ao resultado obtido anteriormente </li>
+            <li>some os dois algarismos do último </li>
+            <li>agora subtraia X (o número que você escreveu) do resultado obtido na instrução acima </li>
         </ol>
         <button onclick="revelarTruque()">Adivinhar resultado</button>
     </div><br>
@@ -36,23 +36,55 @@
         <img src="../../data/img/coelho_magico.jpg" alt="magicRabbit" width="150px">
         <p>o resultado é: <span id="resultado"></span></p>
     </div>
+    
+    <p>13/04/2025 - treinando funções toUpperCase, toLowerCase e placeholders $</p>
+    <input type="text" id="textoSemTratamento" placeholder="digita um texto aqui!">
+    <button onclick="maiuscula()">maiúscula</button>
+    <button onclick="minuscula()">minúscula</button>
+    <p><span id="textoTratado"></span></p>
 
     <script>
         var resultadoFinal = null
 
         function magica() {
-            const  X = document.getElementById("numeroInicial").value;
+            const X = document.getElementById("numeroInicial").value
             if (X == "") {
                 window.alert("digita um número, animal!")
                 return
             }
             resultadoFinal = 9 - Number.parseInt(X)
-            document.getElementById("passos").style.display = "block";
+            document.getElementById("passos").style.display = "block"
         }
 
         function revelarTruque() {
-            document.getElementById("abracadabra").style.display = "block";
-            document.getElementById("resultado").innerText = resultadoFinal;
+            document.getElementById("abracadabra").style.display = "block"
+            document.getElementById("resultado").innerText = resultadoFinal
+        }
+
+        function maiuscula() {
+            var textoSemTratamento = document.getElementById("textoSemTratamento").value
+            var textoTratado = textoSemTratamento.toUpperCase()
+            var textoRetorno = ""
+            if (textoTratado.length == 0) {
+                var textoRetorno = 'nenhum texto foi digitado!'
+            }
+            else {
+                textoRetorno = `o texto em maiúscula é '${textoTratado}'`
+            }
+            document.getElementById("textoTratado").innerText = textoRetorno                
+        }
+
+        function minuscula() {
+            var textoSemTratamento = document.getElementById("textoSemTratamento").value
+            var textoTratado = textoSemTratamento.toLowerCase()
+            var textoRetorno = ""
+            if (textoTratado.length == 0) {
+                var textoRetorno = 'nenhum texto foi digitado!'
+            }
+            else {
+                textoRetorno = `o texto em minúscula é '${textoTratado}'`
+            }
+            document.getElementById("textoTratado").innerText = textoRetorno                
         }
     </script>
 
