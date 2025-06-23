@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 5 - loops, eventos e manipulações DOM</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #container {
+      width: 100%;
+      height: 400px;
+      border: 2px solid #333;
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    #quadrado {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      cursor: grab;
+    }
+    .controls {
+      margin-top: 20px;
+    }
+    button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+    <h3>semana 5</h3>
+    <p>22/06/2025 - aprendendo laço de repetição for</p>
+    <label for="numero">Digite até quanto você quer contar:</label>
+    <input type="number" id="numero" min="1">
+    <button onclick="contar()">Contar</button>
+
+    <div id="resultadoFor"></div>
+
+    <script>
+        function contar() {
+        const input = document.getElementById('numero');
+        const resultadoFor = document.getElementById('resultadoFor');
+        const limite = parseInt(input.value);
+
+        if (isNaN(limite) || limite < 1) {
+            resultadoFor.innerHTML = "por favor, digite um número válido (maior que zero).";
+            return;
+        }
+
+        resultadoFor.innerHTML = "";
+        let i = 0;
+        let numero = 0;
+
+        const intervalo = setInterval(() => {
+            numeros = i;
+            resultadoFor.innerHTML = numeros;
+
+            if (i === limite) {
+            clearInterval(intervalo);
+            resultadoFor.innerHTML += `<br><strong>você contou até ${limite}!</strong>`;
+            }
+
+            i++;
+        }, 500);
+        }
+    </script>
+
+
+    <p>22/06/2025 - aprendendo laço de repetição while</p>
+    <button id='botaoWhile' onclick="toggleContagem()">iniciar Contagem</button>
+
+    <div id="resultadoWhile"></div>
+
+    <script>
+        let contador = 0;
+        let intervalo = null;
+        let contando = false;
+
+        function toggleContagem() {
+        const resultadoWhile = document.getElementById('resultadoWhile');
+        const botaoWhile = document.getElementById('botaoWhile');
+
+        if (!contando) {
+            // Iniciar contagem
+            contando = true;
+            botaoWhile.textContent = "parar Contagem";
+            resultadoWhile.innerHTML = "";
+            contador = 0;
+
+            intervalo = setInterval(() => {
+            resultadoWhile.innerHTML = contador;
+            contador++;
+            }, 500);
+
+        } else {
+            // Parar contagem
+            contando = false;
+            clearInterval(intervalo);
+            resultadoWhile.innerHTML += `<br><strong>Você contou até ${contador - 1}!</strong>`;
+            botaoWhile.textContent = "iniciar Contagem";
+        }
+        }
+    </script>
+
+    <p>22/06/2025 - aprendendo eventos DOM</p>
+    <div class="controls">
+        <label for="tamanho">Tamanho (px):</label>
+        <input type="number" id="tamanho" placeholder="Ex: 150">
+        <button onclick="mudarTamanho()">Alterar Tamanho</button>
+        <br><br>
+        <button onclick="mudarCor('red')">Vermelho</button>
+        <button onclick="mudarCor('green')">Verde</button>
+        <button onclick="mudarCor('blue')">Azul</button>
+    </div>
+
+    <div id="container">
+        <div id="quadrado"></div>
+    </div>
+
+    <script>
+        const quadrado = document.getElementById('quadrado');
+        const container = document.getElementById('container');
+        let arrastando = false;
+        let offsetX, offsetY;
+
+        quadrado.addEventListener('mousedown', (e) => {
+        arrastando = true;
+        const containerRect = container.getBoundingClientRect();
+        offsetX = e.clientX - quadrado.offsetLeft - containerRect.left;
+        offsetY = e.clientY - quadrado.offsetTop - containerRect.top;
+        quadrado.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mouseup', () => {
+        arrastando = false;
+        quadrado.style.cursor = 'grab';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+        if (arrastando) {
+            // Limitar o quadrado dentro do container
+            let newLeft = e.clientX - offsetX - container.getBoundingClientRect().left;
+            let newTop = e.clientY - offsetY - container.getBoundingClientRect().top;
+
+            // Restringir para não sair do container
+            newLeft = Math.max(0, Math.min(newLeft, container.clientWidth - quadrado.offsetWidth));
+            newTop = Math.max(0, Math.min(newTop, container.clientHeight - quadrado.offsetHeight));
+
+            quadrado.style.left = newLeft + 'px';
+            quadrado.style.top = newTop + 'px';
+        }
+        });
+
+        function mudarCor(cor) {
+        quadrado.style.backgroundColor = cor;
+        }
+
+        function mudarTamanho() {
+        const input = document.getElementById('tamanho');
+        const tamanho = parseInt(input.value);
+
+        if (!isNaN(tamanho) && tamanho > 0) {
+            quadrado.style.width = tamanho + 'px';
+            quadrado.style.height = tamanho + 'px';
+        } else {
+            alert('Digite um tamanho válido (maior que zero).');
+        }
+        }
+    </script>
+</body>
+
+</html>
